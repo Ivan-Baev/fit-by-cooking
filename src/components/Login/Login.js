@@ -44,8 +44,8 @@ export default function Login() {
 		}
 	}
 	return (
-		<Dropdown className="d-inline mx-2" autoClose="inside">
-			<Dropdown.Toggle id="dropdown-autoclose-inside">Sign in</Dropdown.Toggle>
+		<Dropdown className="d-inline mx-2" autoClose="outside">
+			<Dropdown.Toggle id="dropdown-autoclose-outside">Sign in</Dropdown.Toggle>
 			<Dropdown.Menu style={{ margin: 0 }}>
 				<Form noValidate validated={validated} method="POST" onSubmit={loginHandler} className="px-4 py-3">
 					<Form.Group className="mb-3" controlId="formBasicEmail">
