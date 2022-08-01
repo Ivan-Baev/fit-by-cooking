@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 import Dropdown from 'react-bootstrap/Dropdown';
-import SplitButton from 'react-bootstrap/SplitButton';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
@@ -24,7 +25,7 @@ export default function Header() {
 				<Dropdown.Toggle split variant="info" id="dropdown-split-basic" />
 
 				<Dropdown.Menu style={{ margin: 0 }}>
-					<Dropdown.Item as={Link} to={`/profile/${user._id}`}>
+					<Dropdown.Item as={Link} to={`/user/${user._id}`}>
 						My Profile
 					</Dropdown.Item>
 					<Dropdown.Item as={Link} to="/my-recipes">
@@ -63,54 +64,35 @@ export default function Header() {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<a className="nav-link" href="#home">
+							<HashLink smooth className="nav-link" to="/#home">
 								Home
-							</a>
+							</HashLink>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#about">
-								About
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#top-choices">
+							<HashLink smooth className="nav-link" to="/#top-choices">
 								Top choices
-							</a>
+							</HashLink>
 						</li>
 					</ul>
-					<a className="navbar-brand m-auto" href="#">
+					<HashLink smooth className="navbar-brand m-auto" to="/#home">
 						<img src="assets/imgs/logo.svg" className="brand-img" alt="" />
 						<span className="brand-txt">Fit by Cooking</span>
-					</a>
+					</HashLink>
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<a className="nav-link" href="#gallery">
-								All recipes<span className="sr-only">(current)</span>
-							</a>
+							<HashLink smooth className="nav-link" to="/cookbook/#">
+								Anabolic cookbook<span className="sr-only">(current)</span>
+							</HashLink>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#contact">
+							<HashLink smooth className="nav-link" to="/#contact">
 								Contact Us
-							</a>
+							</HashLink>
 						</li>
 						{user.email ? userNavigation : <Login />}
 					</ul>
 				</div>
 			</nav>
-			<article id="home" className="header">
-				<div className="overlay text-white text-center">
-					<h1 className="display-2 font-weight-bold my-3">Fit by Cooking</h1>
-					<h2 className="display-4 mb-5">Feel free to share your favourite ones with us!</h2>
-					<div>
-						<a className="btn btn-lg btn-primary" href="#top-choices" style={{ marginRight: '10px' }}>
-							View our top choices
-						</a>
-						<a className="btn btn-lg btn-primary" href="#top-choices">
-							Share your recipe!
-						</a>
-					</div>
-				</div>
-			</article>
 		</header>
 	);
 }

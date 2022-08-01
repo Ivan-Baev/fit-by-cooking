@@ -2,6 +2,9 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
+import { HashLink } from 'react-router-hash-link';
+
+import { useNavigate } from 'react-router-dom';
 
 import * as authService from '../../services/authService';
 
@@ -13,6 +16,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 export default function Login() {
 	const { login } = useContext(AuthContext);
 	const { addNotification } = useNotificationContext();
+	const navigate = useNavigate();
 
 	const [validated, setValidated] = useState(false);
 
@@ -36,6 +40,7 @@ export default function Login() {
 				.then((authData) => {
 					login(authData);
 					addNotification('You logged in successfully!', types.success);
+					navigate('/');
 				})
 				.catch((err) => {
 					console.log(err);
@@ -44,8 +49,8 @@ export default function Login() {
 		}
 	}
 	return (
-		<Dropdown className="d-inline mx-2" autoClose="outside">
-			<Dropdown.Toggle id="dropdown-autoclose-outside">Sign in</Dropdown.Toggle>
+		<Dropdown className="d-inline mx-2">
+			<Dropdown.Toggle>Sign in</Dropdown.Toggle>
 			<Dropdown.Menu style={{ margin: 0 }}>
 				<Form noValidate validated={validated} method="POST" onSubmit={loginHandler} className="px-4 py-3">
 					<Form.Group className="mb-3" controlId="formBasicEmail">
@@ -68,12 +73,9 @@ export default function Login() {
 					</Button>
 				</Form>
 				<div className="dropdown-divider"></div>
-				<a className="dropdown-item" href="#">
-					<small>New around here? Sign up</small>
-				</a>
-				<a className="dropdown-item" href="#">
-					<small>Forgot password?</small>
-				</a>
+				<Dropdown.Item as={HashLink} to="/register#">
+					New around here? Create your free account!
+				</Dropdown.Item>
 			</Dropdown.Menu>
 		</Dropdown>
 	);
