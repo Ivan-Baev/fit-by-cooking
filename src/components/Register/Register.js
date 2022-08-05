@@ -48,7 +48,7 @@ export default function Register() {
 		<div id="contact" className="container-fluid bg-dark text-light border-top wow fadeIn slow ">
 			<article id="home" className="header">
 				<div className="overlay text-white text-center">
-					<div class="container">
+					<div className="container">
 						<h3>Create an account</h3>
 						<div className="box">
 							<Form noValidate validated={validated} method="POST" onSubmit={registerHandler} className="px-3 py-3">

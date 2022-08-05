@@ -11522,7 +11522,7 @@ pre {
 
 .header {
 	height: 100vh;
-	max-height: 900px;
+	max-height: 950px;
 	background: url(../imgs/main.jpg) no-repeat center center fixed;
 	background-size: cover;
 	min-height: 750px;
@@ -11603,7 +11603,7 @@ pre {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url(../imgs/book-table-img.jpg) no-repeat center center fixed;
+	background: url(../imgs/main.jpg) no-repeat center center fixed;
 	background-size: cover;
 	z-index: -1;
 	opacity: 0.3;
@@ -11707,10 +11707,15 @@ pre {
 	opacity: 1;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    display: table;
+html,
+body {
+	min-height: 101vh;
+	height: 100%;
 }
 
+.form-error {
+	color: #dee2e6;
+	background-color: #495057;
+	outline: 1;
+	box-shadow: 0 0 0 0.2rem rgba(255, 33, 79, 0.25);
+}

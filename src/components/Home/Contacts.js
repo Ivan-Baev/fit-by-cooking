@@ -2,8 +2,13 @@ export default function Contacts() {
 	return (
 		<div id="contact" className="container-fluid bg-dark text-light border-top wow fadeIn">
 			<div className="row">
-				<div className="col-md-6 px-0">
-					<div id="map" style={{ width: '100%', height: '100%', minHeight: 400 }} />
+				<div className="col-md-6 px-5 has-height-lg middle-items">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.4299369774553!2d23.322275515685508!3d42.67343432324556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85aae0f7d169%3A0x13d44f430e23dded!2z0LHRg9C7LiDigJ7QlNC20LXQudC80YEg0JHQsNGD0YfQtdGA4oCcIOKEljU4LCAxNDA3INC2LtC6LiDQm9C-0LfQtdC90LXRhiwg0KHQvtGE0LjRjw!5e0!3m2!1sbg!2sbg!4v1659509555454!5m2!1sbg!2sbg"
+						width="100%"
+						height="80%"
+						title="map"
+					></iframe>
 				</div>
 				<div className="col-md-6 px-5 has-height-lg middle-items">
 					<h3>FIND US</h3>

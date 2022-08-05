@@ -3,9 +3,9 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from 'react';
 
 const GuardedRoute = () => {
-	const { isAuthenticated } = useContext(AuthContext);
+	const { user } = useContext(AuthContext);
 
-	return isAuthenticated ? <Outlet /> : <Navigate to="/register" />;
+	return user.email ? <Outlet /> : <Navigate to="/register" />;
 };
 
 export default GuardedRoute;

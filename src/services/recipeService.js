@@ -11,6 +11,39 @@ export const getAllRecipes = async () => {
 	}
 };
 
+export const fetchMoreData = async (query) => {
+	const response = await fetch(`${baseUrl}/recipes?offset=${query}&pageSize=3`);
+	const result = await response.json();
+
+	if (response.ok) {
+		return result;
+	} else {
+		throw result.message;
+	}
+};
+
+export const getAllPosts = async (query) => {
+	if (query) {
+		const response = await fetch(`${baseUrl}/recipes?where=title LIKE "${query}"`);
+		const result = await response.json();
+
+		if (response.ok) {
+			return result;
+		} else {
+			throw result.message;
+		}
+	} else {
+		const response = await fetch(`${baseUrl}/recipes`);
+		const result = await response.json();
+
+		if (response.ok) {
+			return result;
+		} else {
+			throw result.message;
+		}
+	}
+};
+
 export const getRecentRecipes = async () => {
 	const response = await fetch(`${baseUrl}/recipes?sortBy=_createdOn%20desc`);
 	const result = await response.json();

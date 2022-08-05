@@ -14,18 +14,15 @@ const initialNotificationState = { show: false, message: '', type: types.error }
 export const NotificationProvider = ({ children }) => {
 	const [notification, setNotification] = useState(initialNotificationState);
 
-	const addNotification = useCallback(
-		(message, type = types.error) => {
-			setNotification({ show: true, message, type });
+	const addNotification = useCallback((message, type = types.error) => {
+		setNotification({ show: true, message, type });
 
-			setTimeout(() => {
-				setNotification(initialNotificationState);
-			}, 5000);
-		},
-		[initialNotificationState]
-	);
+		setTimeout(() => {
+			setNotification(initialNotificationState);
+		}, 8000);
+	}, []);
 
-	const hideNotification = useCallback(() => setNotification(initialNotificationState), [initialNotificationState]);
+	const hideNotification = useCallback(() => setNotification(initialNotificationState), []);
 
 	return <NotificationContext.Provider value={{ notification, addNotification, hideNotification }}>{children}</NotificationContext.Provider>;
 };

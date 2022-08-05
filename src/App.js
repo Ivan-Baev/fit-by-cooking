@@ -8,10 +8,11 @@ import Notification from './components/common/Notification';
 import Register from './components/Register/Register';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
-import TopChoices from './components/Home/TopChoices';
 import AnabolicCookbook from './components/AnabolicCookbook/AnabolicCookbook';
 import GuardedRoute from './components/common/GuardedRoute';
 import NotFound from './components/common/NotFound';
+import RecipeDetails from './components/RecipeDetails/RecipeDetails';
+import RecipeCreate from './components/RecipeCreate/RecipeCreate';
 
 function App() {
 	return (
@@ -22,17 +23,16 @@ function App() {
 					<Header />
 					<Routes>
 						<Route index element={<Home />} />
-						<Route path="/top-choices" element={<TopChoices />} />
 						<Route path="/register" element={<Register />} />
-						<Route path="*" element={<NotFound />} />
 						<Route path="/cookbook" element={<AnabolicCookbook />} />
+						<Route path="/cookbook/:recipeId/details" element={<RecipeDetails />} />
+						<Route path="*" element={<NotFound />} />
 
 						<Route element={<GuardedRoute />}>
+							<Route path="/create-recipe" element={<RecipeCreate />} />
 							{/* <Route path="/my-profile" element={<Profile />} />
 							<Route path="/my-recipes" element={<MyRecipes />} />
 							<Route path="/logout" element={<Logout />} />
-							<Route path="/create" element={<Create />} />
-							<Route path="/:recipeId/details" element={<Details />} />
 							<Route path="/:recipeId/edit" element={<Edit />} /> */}
 						</Route>
 					</Routes>
