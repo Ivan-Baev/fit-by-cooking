@@ -2,7 +2,6 @@ import { useState, useEffect, lazy } from 'react';
 import * as recipeService from '../../services/recipeService';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-//Components
 const CookbookCard = lazy(() => import('../AnabolicCookbook/CookbookCard'));
 
 export default function AnabolicCookbook() {
@@ -11,17 +10,6 @@ export default function AnabolicCookbook() {
 	const [nothingFound, setNothingFound] = useState(false);
 	const [hasMore, setHasMore] = useState(true);
 	const [page, setPage] = useState(0);
-
-	// useEffect(() => {
-	// 	if (posts.length === 0 && !nothingFound) {
-	// 		recipeService.fetchMoreData(0).then((newPosts) => {
-	// 			setPage(0);
-	// 			console.log(page);
-
-	// 			setPosts((oldPosts) => [...oldPosts, ...newPosts]);
-	// 		});
-	// 	}
-	// }, [nothingFound, posts.length, search, page]);
 
 	const fetchMoreData = () => {
 		setPage(() => page + 3);
@@ -79,7 +67,7 @@ export default function AnabolicCookbook() {
 				<InfiniteScroll
 					style={{ overflow: 'hidden' }}
 					dataLength={posts.length}
-					scrollThreshold={'200px'}
+					scrollThreshold={'400px'}
 					next={fetchMoreData}
 					hasMore={hasMore}
 					loader={

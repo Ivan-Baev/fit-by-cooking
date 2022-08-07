@@ -75,7 +75,7 @@ export default function Header() {
 						</li>
 					</ul>
 					<HashLink smooth className="navbar-brand m-auto" to="/#home">
-						<img src="assets/imgs/logo.svg" className="brand-img" alt="" />
+						<img src="assets/imgs/logo5.svg" className="brand-img" alt="" />
 						<span className="brand-txt">Fit by Cooking</span>
 					</HashLink>
 					<ul className="navbar-nav">

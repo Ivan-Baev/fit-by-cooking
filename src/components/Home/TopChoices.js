@@ -48,7 +48,7 @@ export default function TopChoices() {
 			<div className="tab-content " id="pills-tabContent">
 				<div className="tab-pane fade show active" id="breakfast" role="tabpanel" aria-labelledby="pills-home-tab">
 					<div className="row">
-						{recipes && recipes.length > 0 ? (
+						{recipes && recipes.filter((x) => x.category === 'Breakfast').length > 0 ? (
 							recipes.filter((x) => x.category === 'Breakfast').map((x) => <TopChoicesCard key={x._id} recipe={x} />)
 						) : (
 							<h2 style={{ margin: 'auto' }}>No recipes in breakfast category!</h2>
@@ -57,7 +57,7 @@ export default function TopChoices() {
 				</div>
 				<div className="tab-pane fade" id="meals" role="tabpanel" aria-labelledby="pills-profile-tab">
 					<div className="row">
-						{recipes && recipes.length > 0 ? (
+						{recipes && recipes.filter((x) => x.category === 'Meals').length > 0 ? (
 							recipes.filter((x) => x.category === 'Meals').map((x) => <TopChoicesCard key={x._id} recipe={x} />)
 						) : (
 							<h2 style={{ margin: 'auto' }}>No recipes in meals category!</h2>
@@ -66,7 +66,7 @@ export default function TopChoices() {
 				</div>
 				<div className="tab-pane fade" id="desserts" role="tabpanel" aria-labelledby="pills-profile-tab">
 					<div className="row">
-						{recipes && recipes.length > 0 ? (
+						{recipes && recipes.filter((x) => x.category === 'Desserts').length > 0 ? (
 							recipes.filter((x) => x.category === 'Desserts').map((x) => <TopChoicesCard key={x._id} recipe={x} />)
 						) : (
 							<h2 style={{ margin: 'auto' }}>No recipes in desserts category!</h2>

@@ -3,14 +3,20 @@ import './TopChoiceCard.css';
 
 export default function TopChoiceCard({ recipe }) {
 	return (
-		<div className="col-md-4">
+		<div className="col-md-4 ">
 			<div className="card bg-transparent border my-3 my-md-0">
-				<img src="assets/imgs/blog-1.jpg" alt="template by DevCRID http://www.devcrud.com/" className="rounded-0 card-img-top mg-responsive" />
+				<img src={recipe.imgUrl} alt="" className="rounded-0 card-img-top mg-responsive" style={{ maxHeight: '350px', height: '350px' }} />
 				<div className="card-body">
 					<h3 className="pt20 pb20">{recipe.title}</h3>
-					<h3 className="text-center mb-4">
-						<HashLink smooth to={`cookbook/${recipe._id}/details/#top`} className="badge badge-primary">
-							Read recipe...
+					<div style={{ display: 'flex', justifyContent: 'center' }} className="mt-3">
+						<span className="badge badge-info mr-2">Total calories: {recipe.calories} kcal</span>
+						<span className="badge badge-info mr-2">Protein: {recipe.protein} g</span>
+						<span className="badge badge-info mr-2">Fats: {recipe.fat} g</span>
+						<span className="badge badge-info mr-2">Carbs: {recipe.carbs} g</span>
+					</div>
+					<h3 className="text-center mt-4">
+						<HashLink smooth to={`cookbook/${recipe._id}/details/#`} className="badge badge-primary">
+							Read entire recipe...
 						</HashLink>
 					</h3>
 				</div>

@@ -133,7 +133,7 @@
 	font-size: 16px;
 	color: #111111;
 	height: 30px;
-	width: 60px;
+	width: 80px;
 	background: #f2f2f2;
 	line-height: 46px;
 	text-align: center;
@@ -642,4 +642,22 @@
 	padding: 13px 26px 12px;
 	background: #f4952f;
 	border: none;
+}
+
+#clickableSpan {
+	cursor: pointer;
+}
+
+#ownerButtons {
+	position: absolute;
+	top: 20px;
+	right: 15px;
+	display: inline-flex;
+}
+
+#ownerButtons span {
+	margin-left: 20px;
+}
+#ownerButtons a {
+	height: 50px;
 }

@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:3030/data/';
 
-export const create = async (recipeId, comment, authToken) => {
+export const createComment = async (recipeId, content, author, authToken) => {
 	const response = await fetch(`${baseUrl}/comments`, {
 		method: 'POST',
 		headers: {
@@ -9,25 +9,12 @@ export const create = async (recipeId, comment, authToken) => {
 		},
 		body: JSON.stringify({
 			recipeId,
-			comment,
+			content,
+			author,
 		}),
 	});
 
 	return await response.json();
-};
-
-export const getCommentsByRecipeId = async (recipeId) => {
-	const relations = encodeURIComponent(`user=_ownerId:users`);
-	const search = encodeURIComponent(`gameId="${recipeId}"`);
-
-	const response = await fetch(`${baseUrl}?where=${search}&load=${relations}`);
-	const result = await response.json();
-
-	if (response.ok) {
-		return result;
-	} else {
-		throw result.message;
-	}
 };
 
 export const getAllCommentsByRecipeId = async (recipeId) => {
@@ -40,4 +27,48 @@ export const getAllCommentsByRecipeId = async (recipeId) => {
 	} else {
 		throw result.message;
 	}
+};
+
+export const getCommentById = async (commentId) => {
+	const response = await fetch(`${baseUrl}/comments/${commentId}`);
+	const result = await response.json();
+
+	if (response.ok) {
+		return result;
+	} else {
+		throw result.message;
+	}
+};
+
+export const editComment = async (commentId, content, authToken) => {
+	const response = await fetch(`${baseUrl}/comments/${commentId}`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Authorization': authToken,
+		},
+		body: JSON.stringify({
+			content,
+		}),
+	});
+
+	const result = await response.json();
+
+	if (response.ok) {
+		return result;
+	} else {
+		throw result.message;
+	}
+};
+
+export const deleteComment = async (commentId, authToken) => {
+	const response = await fetch(`${baseUrl}/comments/${commentId}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Authorization': authToken,
+		},
+	});
+
+	return await response.json();
 };

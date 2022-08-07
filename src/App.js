@@ -13,33 +13,37 @@ import GuardedRoute from './components/common/GuardedRoute';
 import NotFound from './components/common/NotFound';
 import RecipeDetails from './components/RecipeDetails/RecipeDetails';
 import RecipeCreate from './components/RecipeCreate/RecipeCreate';
+import RecipeEdit from './components/RecipeEdit/RecipeEdit';
+import ScrollToTop from './components/common/ScrollToTop';
 
 function App() {
 	return (
 		<div className="App">
-			<AuthProvider>
-				<NotificationProvider>
-					<Notification />
-					<Header />
-					<Routes>
-						<Route index element={<Home />} />
-						<Route path="/register" element={<Register />} />
-						<Route path="/cookbook" element={<AnabolicCookbook />} />
-						<Route path="/cookbook/:recipeId/details" element={<RecipeDetails />} />
-						<Route path="*" element={<NotFound />} />
+			<ScrollToTop>
+				<AuthProvider>
+					<NotificationProvider>
+						<Notification />
+						<Header />
+						<Routes>
+							<Route index element={<Home />} />
+							<Route path="/register" element={<Register />} />
+							<Route path="/cookbook" element={<AnabolicCookbook />} />
+							<Route path="/cookbook/:recipeId/details" element={<RecipeDetails />} />
+							<Route path="*" element={<NotFound />} />
 
-						<Route element={<GuardedRoute />}>
-							<Route path="/create-recipe" element={<RecipeCreate />} />
-							{/* <Route path="/my-profile" element={<Profile />} />
+							<Route element={<GuardedRoute />}>
+								<Route path="/create-recipe" element={<RecipeCreate />} />
+								<Route path="/cookbook/:recipeId/edit" element={<RecipeEdit />} />
+								{/* <Route path="/my-profile" element={<Profile />} />
 							<Route path="/my-recipes" element={<MyRecipes />} />
-							<Route path="/logout" element={<Logout />} />
-							<Route path="/:recipeId/edit" element={<Edit />} /> */}
-						</Route>
-					</Routes>
+							*/}
+							</Route>
+						</Routes>
 
-					<Footer />
-				</NotificationProvider>
-			</AuthProvider>
+						<Footer />
+					</NotificationProvider>
+				</AuthProvider>
+			</ScrollToTop>
 		</div>
 	);
 }
