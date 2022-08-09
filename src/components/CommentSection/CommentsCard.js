@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 import EditComment from './EditComment';
-import ConfirmModal from '../Modal';
+import ConfirmModal from '../common/Modal';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 function CommentCard({ comment }) {

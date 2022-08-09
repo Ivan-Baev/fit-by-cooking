@@ -15,6 +15,7 @@ import RecipeDetails from './components/RecipeDetails/RecipeDetails';
 import RecipeCreate from './components/RecipeCreate/RecipeCreate';
 import RecipeEdit from './components/RecipeEdit/RecipeEdit';
 import ScrollToTop from './components/common/ScrollToTop';
+import UserProfile from './components/Profile/UserProfile';
 
 function App() {
 	return (
@@ -34,9 +35,8 @@ function App() {
 							<Route element={<GuardedRoute />}>
 								<Route path="/create-recipe" element={<RecipeCreate />} />
 								<Route path="/cookbook/:recipeId/edit" element={<RecipeEdit />} />
-								{/* <Route path="/my-profile" element={<Profile />} />
-							<Route path="/my-recipes" element={<MyRecipes />} />
-							*/}
+								<Route path="/my-profile" element={<UserProfile />} />
+								{/* <Route path="/my-recipes" element={<MyRecipes />} /> */}
 							</Route>
 						</Routes>
 

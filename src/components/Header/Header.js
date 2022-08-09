@@ -25,7 +25,7 @@ export default function Header() {
 				<Dropdown.Toggle split variant="info" id="dropdown-split-basic" />
 
 				<Dropdown.Menu style={{ margin: 0 }}>
-					<Dropdown.Item as={Link} to={`/user/${user._id}`}>
+					<Dropdown.Item as={HashLink} to="/my-profile/">
 						My Profile
 					</Dropdown.Item>
 					<Dropdown.Item as={Link} to="/my-recipes">

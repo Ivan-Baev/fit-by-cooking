@@ -5,7 +5,7 @@ import { useNotificationContext, types } from '../../contexts/NotificationContex
 
 import Comment from './CommentsCard';
 
-function CommentSection({ recipeId }) {
+function CommentList({ recipeId }) {
 	const { user } = useContext(AuthContext);
 	const { addNotification } = useNotificationContext();
 	const [comments, setComments] = useState({});
@@ -97,4 +97,4 @@ function CommentSection({ recipeId }) {
 	);
 }
 
-export default CommentSection;
+export default CommentList;

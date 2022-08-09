@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from 'react';
+import { useState, lazy } from 'react';
 import * as recipeService from '../../services/recipeService';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -81,7 +81,7 @@ export default function AnabolicCookbook() {
 						</div>
 					}
 				>
-					<div className="gallary row">
+					<div className="gallary row justify-content-lg-start">
 						{posts.map((x) => (
 							<CookbookCard key={x._id} recipe={x} />
 						))}

@@ -125,6 +125,12 @@
 	left: -100px;
 }
 
+.single-post__social__item.right {
+	position: absolute;
+	top: 30px;
+	left: 800px;
+}
+
 .single-post__social__item ul li {
 	list-style: none;
 	display: flex;

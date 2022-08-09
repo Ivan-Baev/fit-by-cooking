@@ -2,15 +2,20 @@ import { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import * as recipeService from '../../services/recipeService';
-import ConfirmModal from '../Modal.js';
+import ConfirmModal from '../common/Modal';
 import './RecipeDetails.css';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import CommentSection from '..//CommentSection/CommentsList';
+import * as favoriteService from '../../services/favoriteService';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 export default function Details() {
 	const { user } = useContext(AuthContext);
+	const { addNotification } = useNotificationContext();
 	const { recipeId } = useParams();
 	const [recipe, setRecipe] = useState({});
+	const [flag, setFlag] = useState(false);
+	const [favorite, setFavorite] = useState({});
 	const [confirm, setConfirm] = useState(false);
 	const navigate = useNavigate();
 
@@ -24,10 +29,29 @@ export default function Details() {
 				setRecipe(result);
 			})
 			.catch((err) => {
-				navigate('/recipes');
 				console.log(err);
 			});
-	}, [recipeId, navigate]);
+	}, [recipeId]);
+
+	useEffect(() => {
+		favoriteService
+			.getOneFavoritedByUserId(recipeId, user._id)
+			.then((result) => {
+				if (result.code === 404) {
+					throw new Error(result.message);
+				}
+				setFavorite(result[0]);
+
+				if (result.length > 0) {
+					setFlag(true);
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, [recipeId, user._id]);
+
+	console.log(favorite);
 
 	const confirmDelete = (e) => {
 		e.preventDefault();
@@ -61,6 +85,21 @@ export default function Details() {
 			</OverlayTrigger>
 		</div>
 	);
+
+	const FavoriteHandler = (e) => {
+		e.preventDefault();
+		setFlag(!flag);
+		if (flag !== true) {
+			favoriteService.addToFavorites(recipe._id, user._id, user.accessToken).then((result) => {
+				setFavorite(result);
+			});
+
+			addNotification('Successfully added to favorites!', types.success);
+		} else {
+			favoriteService.removeFromFavorites(favorite._id, user.accessToken);
+			addNotification('Successfully removed from favorites!', types.danger);
+		}
+	};
 
 	return (
 		<>
@@ -98,6 +137,32 @@ export default function Details() {
 									Fat:<li>{Math.round(recipe.fat / recipe.servings, 0)}g</li>
 								</ul>
 							</div>
+							{user._id ? (
+								<div className="single-post__social__item right">
+									<h5>Save in favorites</h5>
+									{!flag && (
+										<div className="gallary-item wow fadeIn">
+											<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Add to favorites!</Tooltip>}>
+												<div onClick={FavoriteHandler}>
+													<i className="far fa-heart fa-4x" style={{ color: 'blue' }}></i>
+												</div>
+											</OverlayTrigger>
+										</div>
+									)}
+									{flag && (
+										<div className="gallary-item wow fadeIn">
+											<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Remove from favorites!</Tooltip>}>
+												<div onClick={FavoriteHandler}>
+													<i className="fas fa-heart fa-4x" style={{ color: 'blue' }}></i>
+												</div>
+											</OverlayTrigger>
+										</div>
+									)}
+								</div>
+							) : (
+								''
+							)}
+
 							<div className="single-post__top__text">
 								<p>{recipe.description}</p>
 							</div>

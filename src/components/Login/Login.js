@@ -4,8 +4,6 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 import { HashLink } from 'react-router-hash-link';
 
-import { useNavigate } from 'react-router-dom';
-
 import * as authService from '../../services/authService';
 
 import Button from 'react-bootstrap/Button';
@@ -16,7 +14,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 export default function Login() {
 	const { login } = useContext(AuthContext);
 	const { addNotification } = useNotificationContext();
-	const navigate = useNavigate();
 
 	const [validated, setValidated] = useState(false);
 
@@ -49,7 +46,7 @@ export default function Login() {
 	}
 	return (
 		<Dropdown className="d-inline mx-2">
-			<Dropdown.Toggle>Sign in</Dropdown.Toggle>
+			<Dropdown.Toggle id="dropdown-autoclose-true">Sign in</Dropdown.Toggle>
 			<Dropdown.Menu style={{ margin: 0 }}>
 				<Form noValidate validated={validated} method="POST" onSubmit={loginHandler} className="px-4 py-3">
 					<Form.Group className="mb-3" controlId="formBasicEmail">
