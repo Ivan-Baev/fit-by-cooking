@@ -1,8 +1,8 @@
 # Fit-by-cooking project
 
-https://fit-by-cooking.herokuapp.com/
+App hosted on: https://fit-by-cooking.herokuapp.com/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
