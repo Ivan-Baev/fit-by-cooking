@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030';
+const baseUrl = 'https://fit-by-cooking-server.herokuapp.com/';
 
 export const login = async (email, password) => {
 	const response = await fetch(`${baseUrl}/users/login`, {

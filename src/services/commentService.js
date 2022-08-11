@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/data/';
+const baseUrl = 'https://fit-by-cooking-server.herokuapp.com/data/';
 
 export const createComment = async (recipeId, content, author, authToken) => {
 	const response = await fetch(`${baseUrl}/comments`, {

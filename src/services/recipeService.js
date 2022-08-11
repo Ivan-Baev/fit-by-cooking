@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/data';
+const baseUrl = 'https://fit-by-cooking-server.herokuapp.com/data';
 
 export const getAllRecipes = async () => {
 	const response = await fetch(`${baseUrl}/recipes`);

@@ -22,8 +22,6 @@ export default function AnabolicCookbook() {
 				}
 			});
 		}, 1000);
-
-		console.log(page);
 	};
 
 	const fetchSearchData = (e) => {

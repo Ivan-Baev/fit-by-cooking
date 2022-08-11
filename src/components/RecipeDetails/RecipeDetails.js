@@ -51,7 +51,6 @@ export default function Details() {
 			});
 	}, [recipeId, user._id]);
 
-	console.log(favorite);
 
 	const confirmDelete = (e) => {
 		e.preventDefault();
