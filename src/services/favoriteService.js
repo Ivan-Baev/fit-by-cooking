@@ -32,7 +32,7 @@ export const getAllFavoritedByUserId = async (userId) => {
 export const getOneFavoritedByUserId = async (recipeId, userId) => {
 	const query1 = encodeURIComponent(`userId="${userId}"`);
 	const query2 = encodeURIComponent(`recipeId="${recipeId}"`);
-	const response = await fetch(`${baseUrl}/favorites?where=${query1}&where=${query2}`);
+	const response = await fetch(`${baseUrl}/favorites?where=${query1} AND ${query2}`);
 	const result = await response.json();
 
 	if (response.ok) {
