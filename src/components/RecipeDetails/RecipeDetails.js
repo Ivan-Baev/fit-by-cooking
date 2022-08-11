@@ -28,8 +28,8 @@ export default function Details() {
 				}
 				setRecipe(result);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			});
 	}, [recipeId]);
 
@@ -46,8 +46,8 @@ export default function Details() {
 					setFlag(true);
 				}
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			});
 	}, [recipeId, user._id]);
 

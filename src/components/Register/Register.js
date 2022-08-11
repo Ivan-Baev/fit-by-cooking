@@ -37,8 +37,8 @@ export default function Register() {
 					addNotification('You logged in successfully!', types.success);
 					navigate('/');
 				})
-				.catch((err) => {
-					console.log(err);
+				.catch((error) => {
+					console.log(error);
 					addNotification('Invalid registration!', types.error);
 				});
 		}

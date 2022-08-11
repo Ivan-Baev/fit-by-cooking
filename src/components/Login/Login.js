@@ -37,8 +37,8 @@ export default function Login() {
 					login(authData);
 					addNotification('You logged in successfully!', types.success);
 				})
-				.catch((err) => {
-					console.log(err);
+				.catch((error) => {
+					console.log(error);
 					addNotification('Invalid login!', types.error);
 				});
 		}

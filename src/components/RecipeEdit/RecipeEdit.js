@@ -37,8 +37,8 @@ function RecipeEdit() {
 					return { ...oldIsValid, ...{ fields: fields } };
 				});
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			});
 	}, [recipeId]);
 
@@ -196,8 +196,8 @@ function RecipeEdit() {
 					addNotification(`Successfully edited recipe: ${recipe.title} !`, types.success);
 					navigate(`/cookbook/${recipeId}/details`);
 				})
-				.catch((err) => {
-					console.log(err);
+				.catch((error) => {
+					console.log(error);
 				});
 		} else {
 			addNotification(`Fix your errors and try again!`, types.error);
@@ -208,7 +208,6 @@ function RecipeEdit() {
 		const fields = isValid.fields;
 		const errors = isValid.errors;
 		let formIsValid = true;
-		console.log(fields['title']);
 		if (!fields['title']) {
 			formIsValid = false;
 			errors['title'] = 'Recipe title should be at least 3 characters long!';

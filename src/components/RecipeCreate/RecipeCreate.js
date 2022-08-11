@@ -170,8 +170,8 @@ function RecipeCreate() {
 					addNotification(`Successfully created recipe: ${recipe.title} !`, types.success);
 					navigate('/cookbook');
 				})
-				.catch((err) => {
-					console.log(err);
+				.catch((error) => {
+					console.log(error);
 				});
 		} else {
 			addNotification(`Fix your errors and try again!`, types.error);

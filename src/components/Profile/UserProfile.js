@@ -26,8 +26,8 @@ function UserProfile() {
 				const recipesData = Object.values(result);
 				setRecipes(recipesData);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			});
 	}, [user._id]);
 
@@ -42,8 +42,8 @@ function UserProfile() {
 				result.forEach((item) => favorited.push(item.recipes));
 				setFavorites(favorited);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			});
 	}, [user._id]);
 

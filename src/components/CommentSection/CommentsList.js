@@ -17,8 +17,8 @@ function CommentList({ recipeId }) {
 			.then((result) => {
 				setComments(result);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			});
 	}, [recipeId]);
 

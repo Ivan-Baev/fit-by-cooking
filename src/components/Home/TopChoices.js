@@ -13,11 +13,10 @@ export default function TopChoices() {
 					throw new Error(result.message);
 				}
 				const recipesData = Object.values(result);
-				console.log(recipesData);
 				setRecipes(recipesData);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			});
 	}, []);
 
