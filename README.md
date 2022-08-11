@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Fit-by-cooking project
+
+https://fit-by-cooking.herokuapp.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
