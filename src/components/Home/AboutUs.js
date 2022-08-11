@@ -8,20 +8,19 @@ export default function AboutUs() {
 						<div className="col-sm-8 py-5 my-5">
 							<h2 className="mb-4">About Us</h2>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, quisquam accusantium nostrum modi, nemo, officia veritatis ipsum facere maxime assumenda voluptatum enim! Labore
-								maiores placeat impedit, vero sed est voluptas!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita alias dicta autem, maiores doloremque quo perferendis, ut obcaecati
-								harum, <br />
+								Born out of a passion for food. Your health is 80% what you put into your body.
 								<br />
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum necessitatibus iste, nulla recusandae porro minus nemo eaque cum repudiandae quidem voluptate magnam voluptatum? <br />
-								Nobis, saepe sapiente omnis qui eligendi pariatur. quis voluptas. Assumenda facere adipisci quaerat. Illum doloremque quae omnis vitae.
+								<br />
+								FitByCooking has been publishing about food, nutrition and sustainability for more than 30 years. Our mission is to share flavor-packed anabolic recipes from around the world,
+								celebrating fresh ingredients and the farmers, artisans and chefs who bring them to our table. Through science-backed wellness advice and smart stories about sustainability, we help
+								readers live their best lives. We are about moderation and balance—not strict rules or fad diets—because for eating well to become a way of life, it should be accessible, sustainable,
+								inspiring and—above all—delicious.
 							</p>
 							<p>
-								<b>Lonsectetur adipisicing elit. Blanditiis aspernatur, ratione dolore vero asperiores explicabo.</b>
+								<b>FitByCooking was founded in 1990 by the editors of Harrowsmith Country Life (a homesteading magazine) in Charlotte, Vermont. From the beginning,</b>
 							</p>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ab itaque modi, reprehenderit fugit soluta, molestias optio repellat incidunt iure sed deserunt nemo magnam rem explicabo
-								vitae. Cum, nostrum, quidem.
-							</p>
+							<p>FitByCooking continues on, reaching an audience of more than 10 million monthly viewers as well as more than 5 million anabolic animals posting recipes.</p>{' '}
+							<b>Enjoy your stay and lets get shredded!</b>
 						</div>
 					</div>
 				</div>

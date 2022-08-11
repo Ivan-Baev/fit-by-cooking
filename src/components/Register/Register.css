@@ -21,6 +21,11 @@ body {
 	border-radius: 35px;
 }
 
+#contact {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
 .fl {
 	float: left;
 	width: 110px;

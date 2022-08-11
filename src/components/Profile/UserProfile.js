@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 import './UserProfile.css';
 import UserProfileRecipeCard from './UserProfileRecipeCard';
+import Button from 'react-bootstrap/esm/Button';
 
 function UserProfile() {
 	const { user } = useContext(AuthContext);
@@ -48,7 +49,7 @@ function UserProfile() {
 
 	return (
 		<>
-			<div id="gallery" style={{ marginTop: '1px', paddingTop: '200px' }} className=" text-light has-height-md middle-items wow fadeIn">
+			<div id="gallery" style={{ marginTop: '1px', paddingTop: '200px' }} className="overlay text-light has-height-md middle-items wow fadeIn">
 				<div className="row py-5">
 					<div className="col-md-5 mx-auto">
 						<div className="bg-white shadow rounded overflow-hidden">
@@ -68,7 +69,10 @@ function UserProfile() {
 									</div>
 								</div>
 							</div>
-							<div className="bg-light p-4 d-flex justify-content-end text-center text-dark">
+							<div className="bg-light p-4 d-flex text-center justify-content-between text-dark align-items-center">
+								<Button as={Link} to="/create-recipe" variant="primary" style={{ marginLeft: 300 }}>
+									Create recipe!
+								</Button>
 								<ul className="list-inline mb-0 mr-2">
 									<li className="list-inline-item ml-2">
 										<h5 className="font-weight-bold mb-0 d-block">{recipes.length}</h5>

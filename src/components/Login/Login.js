@@ -20,7 +20,6 @@ export default function Login() {
 	function loginHandler(e) {
 		const form = e.currentTarget;
 		if (form.checkValidity() === false) {
-			e.stopPropagation();
 			e.preventDefault();
 		}
 

@@ -20,17 +20,13 @@ export default function Header() {
 	let userNavigation = (
 		<div>
 			<Dropdown as={ButtonGroup}>
-				<Button variant="secondary">Welcome, {user.username}</Button>
+				<Button as={HashLink} to="/my-profile/" variant="secondary">
+					Welcome, {user.username}
+				</Button>
 
 				<Dropdown.Toggle split variant="info" id="dropdown-split-basic" />
 
 				<Dropdown.Menu style={{ margin: 0 }}>
-					<Dropdown.Item as={HashLink} to="/my-profile/">
-						My Profile
-					</Dropdown.Item>
-					<Dropdown.Item as={Link} to="/my-recipes">
-						My Recipes
-					</Dropdown.Item>
 					<Dropdown.Item as={Link} to="/create-recipe">
 						Create Recipe
 					</Dropdown.Item>
@@ -49,7 +45,7 @@ export default function Header() {
 	}
 	return (
 		<header>
-			<nav className="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top={10}>
+			<nav className="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" style={{ zIndex: 9 }} data-spy="affix" data-offset-top={10}>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -68,11 +64,7 @@ export default function Header() {
 								Home
 							</HashLink>
 						</li>
-						<li className="nav-item">
-							<HashLink smooth className="nav-link" to="/#top-choices">
-								Top choices
-							</HashLink>
-						</li>
+						<li className="nav-item"></li>
 					</ul>
 					<HashLink smooth className="navbar-brand m-auto" to="/#home">
 						<img src="assets/imgs/logo5.svg" className="brand-img" alt="" />

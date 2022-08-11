@@ -1,9 +1,14 @@
-import { HashLink } from 'react-router-hash-link';
 import './TopChoiceCard.css';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function TopChoiceCard({ recipe }) {
+	const navigate = useNavigate();
+	function onClickHandler(e) {
+		e.preventDefault();
+		navigate(`cookbook/${recipe._id}/details/#`);
+	}
 	return (
-		<div className="col-md-4 ">
+		<div className="col-md-4" onClick={onClickHandler}>
 			<div className="card bg-transparent border my-3 my-md-0">
 				<img src={recipe.imgUrl} alt="" className="rounded-0 card-img-top mg-responsive" style={{ maxHeight: '350px', height: '350px' }} />
 				<div className="card-body">
@@ -15,9 +20,7 @@ export default function TopChoiceCard({ recipe }) {
 						<span className="badge badge-info mr-2">Carbs: {recipe.carbs} g</span>
 					</div>
 					<h3 className="text-center mt-4">
-						<HashLink smooth to={`cookbook/${recipe._id}/details/#`} className="badge badge-primary">
-							Read entire recipe...
-						</HashLink>
+						<p className="badge badge-primary">Read entire recipe</p>
 					</h3>
 				</div>
 			</div>

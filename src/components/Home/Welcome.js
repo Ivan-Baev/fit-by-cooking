@@ -8,9 +8,9 @@ export default function Welcome() {
 				<h2 className="display-4 mb-5">Share your favourite recipes with us!</h2>
 				<div>
 					<HashLink smooth className="btn btn-lg btn-primary" to="#top-choices" style={{ marginRight: '10px' }}>
-						View our top choices
+						View our newest recipes!
 					</HashLink>
-					<HashLink smooth className="btn btn-lg btn-primary" to="#top-choices">
+					<HashLink smooth className="btn btn-lg btn-primary" to="/create-recipe">
 						Share your recipe!
 					</HashLink>
 				</div>

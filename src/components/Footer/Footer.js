@@ -15,7 +15,7 @@ export default function Footer() {
 					</div>
 					<div className="col-sm-4">
 						<h3>FIND US</h3>
-						<p className="text-muted">12345 Fake ST NoWhere AB Country</p>
+						<p className="text-muted">ул. "Кораб Планина" 10, София, България</p>
 					</div>
 				</div>
 			</div>
