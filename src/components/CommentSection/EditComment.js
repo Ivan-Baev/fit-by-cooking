@@ -29,12 +29,12 @@ const EditComment = ({ commentData, toggleIsBeingEdited }) => {
 					addNotification('Comment edited successfully!', types.success);
 				})
 				.catch((error) => console.log(error));
-			toggleIsBeingEdited(true);
 		}
 	};
 
 	const toggleIsBeingEditedAndSubmit = () => {
 		toggleIsBeingEdited(true);
+
 		submitEl.current.click();
 	};
 
